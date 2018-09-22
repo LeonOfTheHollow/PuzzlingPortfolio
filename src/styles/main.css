@@ -1,0 +1,86 @@
+.TreasureChest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.TreasureChest__TopHalf {
+  height: 200px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+  border-radius: 100px 100px 5px 5px;
+  background-color: #080e0e;
+  border-bottom: goldenrod 2px solid;
+  position: relative;
+}
+.TreasureChest__BottomHalf {
+  height: 200px;
+  width: 50%;
+  border-radius: 5px;
+  background-color: #080e0e;
+  border-top: goldenrod 2px solid;
+}
+.TreasureChest__Lock {
+  position: relative;
+  bottom: 250px;
+  width: 100px;
+  height: 100px;
+  background-color: gold;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+}
+.TreasureChest__Button {
+  color: goldenrod;
+  width: 80px;
+  height: 80px;
+  margin-top: 40px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 34px;
+}
+.TreasureChest__Button--hidden {
+  background-color: #0b1111;
+}
+.TreasureChest__Button--flipping {
+  animation-duration: 1s;
+  animation-name: button_reveal_flip;
+}
+.TreasureChest__Button--revealed {
+  background-color: #525252;
+}
+.OldKey {
+  width: 200px;
+  height: 100px;
+}
+.KeyContainer {
+  background-color: lightgreen;
+}
+.Keyhole {
+  width: 100px;
+  height: 90px;
+}
+@keyframes button_reveal_flip {
+  50% {
+    background-color: #0b1111;
+    -webkit-transform: rotateX(85deg) rotateY(0deg);
+    transform: rotateX(85deg) rotateY(0deg);
+  }
+  100% {
+    background-color: #525252;
+    -webkit-transform: rotateX(180deg) rotateY(0deg);
+    transform: rotateX(180deg) rotateY(0deg);
+  }
+}
+.AppHeader {
+  font-family: 'Julius Sans One', sans-serif;
+  font-family: 'PT Sans', sans-serif;
+  color: #332513;
+}

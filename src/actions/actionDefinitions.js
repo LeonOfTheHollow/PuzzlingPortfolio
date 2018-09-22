@@ -1,0 +1,8 @@
+export const UPDATE_BANNER = "UPDATE_BANNER";
+export const UPDATE_CODE = "UPDATE_CODE";
+// Animations
+export const START_BUTTON_REVEAL = "START_BUTTON_REVEAL";
+export const FINISH_BUTTON_REVEAL = "FINISH_BUTTON_REVEAL";
+
+export const START_KEY_DROP = "START_KEY_DROP";
+export const FINISH_KEY_DROP = "FINISH_KEY_DROP";
