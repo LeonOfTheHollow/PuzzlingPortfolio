@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 class Header extends Component {
   render() {
     return(
-      <div className="AppHeader">
+      <div className={this.props.boxState === "CLOSED" ? "AppHeader" : "AppHeader AppHeader--hiding"}>
         <h1>
           {this.props.banner}
         </h1>
@@ -16,6 +16,7 @@ class Header extends Component {
 const mapStateToProps = (state) => {
   return {
     banner: state.landingPuzzle.banner,
+    boxState: state.landingPuzzle.box,
   }
 }
 

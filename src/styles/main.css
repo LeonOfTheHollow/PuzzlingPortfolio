@@ -3,22 +3,36 @@
   flex-direction: column;
   align-items: center;
 }
+.TreasureChest--opening {
+  animation-duration: 4.1s;
+  animation-name: chest_opening;
+}
 .TreasureChest__TopHalf {
   height: 200px;
   display: flex;
   justify-content: space-evenly;
   width: 50%;
+  min-width: 425px;
   border-radius: 100px 100px 5px 5px;
   background-color: #080e0e;
   border-bottom: goldenrod 2px solid;
   position: relative;
 }
+.TreasureChest__TopHalf--opening {
+  animation-duration: 4.1s;
+  animation-name: opening_box_top_half;
+}
 .TreasureChest__BottomHalf {
   height: 200px;
   width: 50%;
+  min-width: 425px;
   border-radius: 5px;
   background-color: #080e0e;
   border-top: goldenrod 2px solid;
+}
+.TreasureChest__BottomHalf--opening {
+  animation-duration: 4.1s;
+  animation-name: opening_box_bottom_half;
 }
 .TreasureChest__Lock {
   position: relative;
@@ -33,6 +47,11 @@
   justify-content: space-around;
   align-content: center;
 }
+.TreasureChest__Lock--solved {
+  animation-duration: 4.1s;
+  animation-iteration-count: 1;
+  animation-name: fading_lock;
+}
 .TreasureChest__Button {
   color: goldenrod;
   width: 80px;
@@ -43,22 +62,33 @@
   flex-direction: column;
   justify-content: space-around;
   align-content: center;
-  font-family: 'Archivo Black', sans-serif;
+  font-family: "Archivo Black", sans-serif;
   font-size: 34px;
 }
 .TreasureChest__Button--hidden {
   background-color: #0b1111;
 }
+.TreasureChest__Button--revealed {
+  background-color: #525252;
+  user-select: none;
+}
 .TreasureChest__Button--flipping {
   animation-duration: 1s;
   animation-name: button_reveal_flip;
 }
-.TreasureChest__Button--revealed {
-  background-color: #525252;
+.TreasureChest__Button--unflipping {
+  animation-duration: 1s;
+  animation-name: button_hide_flip;
 }
 .OldKey {
   width: 200px;
   height: 100px;
+  position: relative;
+}
+.OldKey--falling {
+  z-index: -1;
+  animation-duration: 1s;
+  animation-name: falling_key;
 }
 .KeyContainer {
   background-color: lightgreen;
@@ -79,8 +109,113 @@
     transform: rotateX(180deg) rotateY(0deg);
   }
 }
+@keyframes button_hide_flip {
+  0% {
+    background-color: #525252;
+  }
+  100% {
+    background-color: #0b1111;
+  }
+}
+@keyframes falling_key {
+  0% {
+    bottom: 250px;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+@keyframes opening_box_top_half {
+  90% {
+    border-radius: 5px;
+  }
+  100% {
+    width: 100%;
+    border-radius: 0px;
+  }
+}
+@keyframes opening_box_bottom_half {
+  50% {
+    height: 200px;
+  }
+  100% {
+    width: 100%;
+    height: 1000px;
+  }
+}
+@keyframes fading_lock {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes chest_opening {
+  to {
+    -webkit-transform: translateY(-90px);
+    transform: translateY(-90px);
+  }
+}
 .AppHeader {
-  font-family: 'Julius Sans One', sans-serif;
-  font-family: 'PT Sans', sans-serif;
+  font-family: "Julius Sans One", sans-serif;
+  font-family: "PT Sans", sans-serif;
+  height: 75px;
   color: #332513;
+}
+.LandingPuzzle {
+  text-align: center;
+}
+.LandingPage {
+  background-color: #0b1111;
+  width: 100%;
+  height: 1200px;
+  color: goldenrod;
+  line-height: 1.8;
+  justify-content: center;
+}
+.LandingPage__ContentContainer {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+.LandingPage__ArticleColumn {
+  width: 80%;
+  text-align: left;
+  text-indent: 30pt;
+}
+.NavBar {
+  height: 200px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  background-color: #080e0e;
+  border-bottom: goldenrod 4px solid;
+}
+.NavBar__Link {
+  color: goldenrod;
+  width: 80px;
+  height: 80px;
+  margin-top: 40px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 34px;
+  text-decoration: none;
+}
+.NavBar__Link:hover {
+  outline: 2px solid goldenrod;
+}
+.CellularAutomataPage {
+  background-color: #0b1111;
+  width: 100%;
+  height: 1200px;
+  color: goldenrod;
+  text-align: center;
 }

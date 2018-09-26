@@ -4,25 +4,40 @@
   align-items: center;
 }
 
+.TreasureChest--opening {
+  animation-duration: 4.1s;
+  animation-name: chest_opening;
+}
+
 .TreasureChest__TopHalf {
   height: 200px;
   display: flex;
   justify-content: space-evenly;
   width: 50%;
+  min-width: 425px;
   border-radius: 100px 100px 5px 5px;
   background-color: rgb(8, 14, 14);
   border-bottom: goldenrod 2px solid;
   position: relative;
-  // -webkit-perspective: 500px;
-  // perspective: 500px;
+}
+
+.TreasureChest__TopHalf--opening {
+  animation-duration: 4.1s;
+  animation-name: opening_box_top_half;
 }
 
 .TreasureChest__BottomHalf {
   height: 200px;
   width: 50%;
+  min-width: 425px;
   border-radius: 5px;
   background-color: rgb(8, 14, 14);
   border-top: goldenrod 2px solid;
+}
+
+.TreasureChest__BottomHalf--opening {
+  animation-duration: 4.1s;
+  animation-name: opening_box_bottom_half;
 }
 
 .TreasureChest__Lock {
@@ -39,6 +54,12 @@
   align-content: center;
 }
 
+.TreasureChest__Lock--solved {
+  animation-duration: 4.1s;
+  animation-iteration-count: 1;
+  animation-name: fading_lock;
+}
+
 .TreasureChest__Button {
   color: goldenrod;
   width: 80px;
@@ -49,7 +70,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-content: center;
-  font-family: 'Archivo Black', sans-serif;
+  font-family: "Archivo Black", sans-serif;
   font-size: 34px;
 }
 
@@ -57,18 +78,31 @@
   background-color: rgb(11, 17, 17);
 }
 
+.TreasureChest__Button--revealed {
+  background-color: rgb(82, 82, 82);
+  user-select: none;
+}
+
 .TreasureChest__Button--flipping {
   animation-duration: 1s;
   animation-name: button_reveal_flip;
 }
 
-.TreasureChest__Button--revealed {
-  background-color: rgb(82, 82, 82);
+.TreasureChest__Button--unflipping {
+  animation-duration: 1s;
+  animation-name: button_hide_flip;
 }
 
 .OldKey {
   width: 200px;
   height: 100px;
+  position: relative;
+}
+
+.OldKey--falling {
+  z-index: -1;
+  animation-duration: 1s;
+  animation-name: falling_key;
 }
 // (+DR-UL,+DL-UR)
 .KeyContainer {
@@ -90,5 +124,66 @@
     background-color: rgb(82, 82, 82);
     -webkit-transform: rotateX(180deg) rotateY(0deg);
     transform: rotateX(180deg) rotateY(0deg);
+  }
+}
+
+@keyframes button_hide_flip {
+  0% {
+    background-color: rgb(82, 82, 82);
+  }
+  100% {
+    background-color: rgb(11, 17, 17);
+  }
+}
+
+@keyframes falling_key {
+  0% {
+    bottom: 250px;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+
+@keyframes opening_box_top_half {
+  50% {
+    // width: 50%;
+  }
+  90% {
+    border-radius: 5px;
+  }
+  100% {
+    width: 100%;
+    border-radius: 0px;
+  }
+}
+
+@keyframes opening_box_bottom_half {
+  50% {
+    // width: 50%;
+    height: 200px;
+  }
+  100% {
+    width: 100%;
+    height: 1000px;
+  }
+}
+
+@keyframes fading_lock {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes chest_opening {
+  to {
+    -webkit-transform: translateY(-90px);
+    transform: translateY(-90px);
   }
 }

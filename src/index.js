@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
 import "./styles/main.css";
-import App from './App';
+import LandingPuzzle from './components/LandingPuzzle';
+import CellularAutomataPage from './components/CellularAutomata/Container';
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -18,7 +19,8 @@ ReactDOM.render(
   <Provider store={store}>
   <Router>
     <div>
-      <Route exact path="/" component={App} />
+      <Route exact path="/" component={LandingPuzzle} />
+      <Route exact path="/automata" component={CellularAutomataPage} />
     </div>
   </Router>
   </Provider>,
